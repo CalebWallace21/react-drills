@@ -1,26 +1,37 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      userInput: '',
+      arrayList: ['cheese ', 'bologna ', 'sushi ', 'ice cream ', 'spaghetti ']
+    }
+  }
+  handleChange(val){
+    this.setState ({userInput: val});
+  }
+
+ 
+render(){
+  let itemsDisplay = this.state.arrayList.filter((element)=> {
+    return element.includes(this.state.userInput)
+  })
+  
+  
+  itemsDisplay.map((element, index) => {
+    return this.state.arrayList[element, index]
+  })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <div>
+    <input className="inputLine" onChange={ (e) => this.handleChange(e.target.value)}></input>
+     <h1>{itemsDisplay}</h1>
+     </div>
+  )
+}
+
 }
 
 export default App;

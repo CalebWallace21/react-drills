@@ -1,25 +1,19 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Image from "./Image";
 
-class App extends Component {
+class Todo extends Component {
   constructor(){
-    super();
-  }
+    super();    
+    }
+    
+  
+
 render(){
   return (
-    <div>
-      <Image/>
-    </div>
+    <h1>{this.props.task}</h1>
   )
 }
-
-
-
-
-
-
 }
 
-export default App;
+export default Todo;
